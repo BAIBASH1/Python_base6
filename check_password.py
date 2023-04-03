@@ -34,18 +34,18 @@ def score_count(edit, new_edit_text):
     reply.set_text(f"Рейтинг вашего пароля: {score}")
 
 
-checks = [
-    has_digits,
-    has_upper_letters,
-    has_letters,
-    has_symbols,
-    is_very_long,
-    has_lower_letters
-]
-
-ask = urwid.Edit('Введите пароль: ', mask='*')
-reply = urwid.Text("")
-menu = urwid.Pile([ask, reply])
-menu = urwid.Filler(menu, valign='top')
-urwid.connect_signal(ask, 'change', score_count)
-urwid.MainLoop(menu).run()
+if __name__== '__main__':
+    checks = [
+        has_digits,
+        has_upper_letters,
+        has_letters,
+        has_symbols,
+        is_very_long,
+        has_lower_letters
+    ]
+    ask = urwid.Edit('Введите пароль: ', mask='*')
+    reply = urwid.Text("")
+    menu = urwid.Pile([ask, reply])
+    menu = urwid.Filler(menu, valign='top')
+    urwid.connect_signal(ask, 'change', score_count)
+    urwid.MainLoop(menu).run()
